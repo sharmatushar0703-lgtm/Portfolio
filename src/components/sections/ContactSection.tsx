@@ -20,23 +20,23 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 relative border-t border-slate-800/80 bg-slate-950/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="contact" className="py-20 sm:py-28 relative border-t border-slate-800/80 bg-slate-950/60 w-full">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 space-y-10 sm:space-y-12">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+        <div className="text-center max-w-4xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-wider font-mono">
             <Sparkles className="h-3.5 w-3.5" />
             <span>Connect & Collaborate</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
             Let’s Build Something Impactful Together
           </h2>
-          <p className="text-sm sm:text-base text-slate-400">
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
             Open to executive roles, data architecture consultations, and analytics projects.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 w-full items-stretch">
           {/* Direct Details */}
           <div className="lg:col-span-5 space-y-4">
             <Card3D glowColor="rgba(56, 189, 248, 0.25)" className="space-y-4">
@@ -45,7 +45,7 @@ export function ContactSection() {
               </h3>
 
               <div className="space-y-3 text-xs sm:text-sm">
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="flex items-center justify-between p-3 sm:p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <Mail className="h-4 w-4 text-cyan-400 shrink-0" />
                     <span className="font-semibold text-slate-200 truncate">
@@ -63,7 +63,7 @@ export function ContactSection() {
 
                 <a
                   href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, '')}`}
-                  className="flex items-center gap-2.5 p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-emerald-500/40 transition-colors"
+                  className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-emerald-500/40 transition-colors"
                 >
                   <Phone className="h-4 w-4 text-emerald-400 shrink-0" />
                   <span className="font-semibold text-slate-200">
@@ -71,7 +71,7 @@ export function ContactSection() {
                   </span>
                 </a>
 
-                <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
                   <MapPin className="h-4 w-4 text-rose-400 shrink-0" />
                   <span className="font-semibold text-slate-200">
                     {PERSONAL_INFO.location}

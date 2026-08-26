@@ -1,39 +1,38 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 import { EXPERIENCES } from '@/data/portfolioData';
 import { Card3D } from '@/components/ui/Card3D';
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="experience" className="py-20 sm:py-28 relative w-full">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 space-y-10 sm:space-y-12">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+        <div className="text-center max-w-4xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider font-mono">
             <Briefcase className="h-3.5 w-3.5" />
             <span>Career Progression</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
             Professional Experience & Milestones
           </h2>
-          <p className="text-sm sm:text-base text-slate-400">
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
             A track record of continuous performance optimization, CRM engineering, and executive reporting governance since 2019.
           </p>
         </div>
 
-        {/* Timeline Stack */}
-        <div className="max-w-4xl mx-auto space-y-8">
+        {/* Timeline Grid */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8 w-full">
           {EXPERIENCES.map((exp) => (
             <Card3D
               key={exp.company}
-              glowColor="rgba(16, 185, 129, 0.2)"
+              glowColor="rgba(16, 185, 129, 0.25)"
               className="space-y-4"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
                 <div>
-                  <div className="flex items-center gap-2.5">
-                    <h3 className="text-xl font-bold text-white">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-white">
                       {exp.role}
                     </h3>
                     {exp.badge && (
@@ -47,14 +46,14 @@ export function ExperienceSection() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 text-xs text-slate-400 font-mono">
+                <div className="flex items-center gap-2.5 text-xs text-slate-400 font-mono">
                   <span className="flex items-center gap-1">
-                    <Calendar className="h-3.5 w-3.5 text-cyan-400" />
+                    <Calendar className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
                     {exp.period}
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1">
-                    <MapPin className="h-3.5 w-3.5 text-rose-400" />
+                    <MapPin className="h-3.5 w-3.5 text-rose-400 shrink-0" />
                     {exp.location}
                   </span>
                 </div>

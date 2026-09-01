@@ -7,21 +7,28 @@ import { SkillsSection } from '@/components/sections/SkillsSection';
 import { CredentialsSection } from '@/components/sections/CredentialsSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { Footer } from '@/components/sections/Footer';
+import { PrintResume } from '@/components/print/PrintResume';
 
 export function App() {
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 selection:bg-cyan-500 selection:text-black">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <CredentialsSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <>
+      {/* Dedicated Clean Executive Resume View for Print Mode */}
+      <PrintResume />
+
+      {/* Main 3D Interactive Web Application */}
+      <div className="print:hidden min-h-screen bg-[#030712] text-slate-100 selection:bg-cyan-500 selection:text-black overflow-x-hidden">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <SkillsSection />
+          <CredentialsSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
 export default App;

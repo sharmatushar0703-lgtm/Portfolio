@@ -6,10 +6,16 @@ interface Card3DProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   glowColor?: string;
-  depth?: number;
+  fullHeight?: boolean;
 }
 
-export function Card3D({ children, className, glowColor = 'rgba(56, 189, 248, 0.25)', depth = 25, ...props }: Card3DProps) {
+export function Card3D({
+  children,
+  className,
+  glowColor = 'rgba(56, 189, 248, 0.22)',
+  fullHeight = false,
+  ...props
+}: Card3DProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -21,13 +27,13 @@ export function Card3D({ children, className, glowColor = 'rgba(56, 189, 248, 0.
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
-    const rotX = ((y - centerY) / centerY) * -12;
-    const rotY = ((x - centerX) / centerX) * 12;
-    
+
+    const rotX = ((y - centerY) / centerY) * -10;
+    const rotY = ((x - centerX) / centerX) * 10;
+
     setRotateX(rotX);
     setRotateY(rotY);
     setGlowPos({ x: (x / rect.width) * 100, y: (y / rect.height) * 100 });
@@ -46,18 +52,19 @@ export function Card3D({ children, className, glowColor = 'rgba(56, 189, 248, 0.
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="perspective-1000 h-full"
+      className={cn("perspective-1000 w-full", fullHeight && "h-full")}
       {...props}
     >
       <motion.div
         animate={{
           rotateX: isHovered ? rotateX : 0,
           rotateY: isHovered ? rotateY : 0,
-          scale: isHovered ? 1.02 : 1,
+          scale: isHovered ? 1.015 : 1,
         }}
         transition={{ type: 'spring', stiffness: 350, damping: 25 }}
         className={cn(
-          'glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 transform-style-3d relative overflow-hidden transition-colors h-full flex flex-col justify-between',
+          'glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 transform-style-3d relative overflow-hidden transition-all border border-slate-800/90 shadow-xl',
+          fullHeight && 'h-full flex flex-col justify-between',
           className
         )}
       >
@@ -71,7 +78,7 @@ export function Card3D({ children, className, glowColor = 'rgba(56, 189, 248, 0.
           />
         )}
 
-        <div className="relative z-10 transform-style-3d h-full flex flex-col justify-between">
+        <div className={cn("relative z-10 transform-style-3d w-full", fullHeight && "h-full flex flex-col justify-between")}>
           {children}
         </div>
       </motion.div>

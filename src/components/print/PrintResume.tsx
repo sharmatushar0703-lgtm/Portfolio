@@ -12,68 +12,74 @@ export function PrintResume() {
   const parulExp = EXPERIENCES.find((e) => e.company.includes('Parul')) || EXPERIENCES[0];
   const sofconExp = EXPERIENCES.find((e) => e.company.includes('Sofcon')) || EXPERIENCES[1];
 
+  // Reusable Executive Header for all pages
+  const renderHeader = (pageNumber: number) => (
+    <header className="border-b-2 border-slate-900 pb-2.5 mb-3">
+      <div className="flex justify-between items-baseline">
+        <div>
+          <h1 className="text-2xl font-black uppercase tracking-wider text-slate-950">
+            {PERSONAL_INFO.name}
+          </h1>
+          <p className="text-[11px] font-bold text-slate-700 uppercase tracking-wide mt-0.5">
+            {PERSONAL_INFO.headline}
+          </p>
+        </div>
+        <div className="text-right text-[10px] font-bold text-slate-600 font-mono">
+          <span>Vadodara, Gujarat, India</span>
+          <span className="block text-[9px] font-semibold text-slate-500">Page {pageNumber} of 2</span>
+        </div>
+      </div>
+
+      {/* Complete Contact Details Row on Every Page */}
+      <div className="flex flex-wrap items-center justify-between gap-y-1 gap-x-3 pt-2 mt-2 border-t border-slate-200 text-[10px] text-slate-800 font-medium">
+        <div className="flex items-center gap-1">
+          <span className="font-bold text-slate-950">Phone:</span>
+          <span>{PERSONAL_INFO.phone}</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <span className="font-bold text-slate-950">Email:</span>
+          <span>{PERSONAL_INFO.email}</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <span className="font-bold text-slate-950">LinkedIn:</span>
+          <span>linkedin.com/in/sharmatushar0703</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <span className="font-bold text-slate-950">GitHub:</span>
+          <span>github.com/sharmatushar0703</span>
+        </div>
+      </div>
+    </header>
+  );
+
   return (
-    <div className="hidden print:block bg-white text-slate-900 font-sans w-full max-w-[210mm] mx-auto text-left leading-tight">
+    <div className="hidden print:block bg-white text-slate-900 font-sans w-full max-w-[210mm] mx-auto text-left leading-normal">
       {/* ====================================================================
-          PAGE 1: Profile, Competencies & Current Executive Role
+          PAGE 1: Profile, Core Competencies & Current Primary Experience
           ==================================================================== */}
       <div className="resume-page resume-page-1 flex flex-col justify-start">
-        {/* Header Banner */}
-        <header className="border-b-2 border-slate-900 pb-2.5 mb-3">
-          <div className="flex justify-between items-start">
-            <div>
-              <h1 className="text-2xl font-black uppercase tracking-wider text-slate-950">
-                {PERSONAL_INFO.name}
-              </h1>
-              <p className="text-xs font-bold text-slate-700 uppercase tracking-wide mt-0.5">
-                {PERSONAL_INFO.headline}
-              </p>
-            </div>
-            <div className="text-right text-[10px] font-semibold text-slate-600 font-mono">
-              <span>Vadodara, Gujarat, India</span>
-            </div>
-          </div>
+        {/* Consistent Executive Header (Page 1) */}
+        {renderHeader(1)}
 
-          {/* Contact Details Bar with LinkedIn */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 mt-2 border-t border-slate-200 text-[10.5px] text-slate-800 font-medium">
-            <div className="flex items-center gap-1.5">
-              <span className="font-bold text-slate-950">Phone:</span>
-              <span>{PERSONAL_INFO.phone}</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-bold text-slate-950">Email:</span>
-              <span className="truncate">{PERSONAL_INFO.email}</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-bold text-slate-950">LinkedIn:</span>
-              <span>linkedin.com/in/sharmatushar0703</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-bold text-slate-950">GitHub:</span>
-              <span>github.com/sharmatushar0703</span>
-            </div>
-          </div>
-        </header>
-
-        {/* Executive Summary */}
+        {/* Executive Professional Summary */}
         <section className="mb-3.5 avoid-break">
-          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-b border-slate-400 pb-0.5 mb-1.5 flex items-center justify-between">
-            <span>Executive Professional Summary</span>
+          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-l-3 border-slate-900 pl-2 pb-0.5 mb-1.5 flex items-center justify-between">
+            <span>Executive Professional Profile</span>
             <span className="text-[9.5px] font-mono text-slate-600 font-normal">5+ Years Experience</span>
           </h2>
           <p className="text-[10px] text-slate-700 leading-relaxed text-justify">
-            Result-driven <strong>System Executive</strong> with 3+ years of specialized experience at <strong>Parul University</strong> and overall professional experience beginning in 2019. Proven track record in overseeing enterprise CRM operations, large-scale admissions workflows, MIS management reporting, and process automation. Expert in managing high-volume data validation (150K+ records with 99.8% reporting accuracy), anomaly detection, deduplication pipelines, and designing executive presentation scorecards for university leadership. Adept at cross-functional coordination, turning raw data into strategic operational intelligence, and eliminating manual spreadsheet redundancies.
+            Results-driven <strong>System Executive</strong> with 3+ years of specialized experience at <strong>Parul University</strong> and overall professional tenure starting in 2019. Proven track record in orchestrating large-scale CRM operations, admissions data pipelines, executive MIS reporting, and analytical scorecards. Recognized for maintaining high-volume data integrity (150K+ operational records with 99.8% reporting accuracy), anomaly detection, deduplication mechanisms, and eliminating manual spreadsheet redundancies. Adept at cross-functional leadership, translating complex business requirements into technical reporting architectures, and empowering executive decision-making.
           </p>
         </section>
 
         {/* Core Competencies Matrix */}
         <section className="mb-3.5 avoid-break">
-          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-b border-slate-400 pb-0.5 mb-1.5">
-            Core Competencies & Technical Skills
+          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-l-3 border-slate-900 pl-2 pb-0.5 mb-1.5">
+            Core Competencies & Domain Expertise
           </h2>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[10px]">
+          <div className="grid grid-cols-2 gap-2 text-[10px]">
             {SKILL_CATEGORIES.map((category) => (
-              <div key={category.title} className="p-1.5 rounded-sm bg-slate-50 border border-slate-200">
+              <div key={category.title} className="p-2 rounded-sm bg-slate-50 border border-slate-200">
                 <p className="font-bold text-slate-950 text-[10px] uppercase tracking-wider mb-0.5">
                   {category.title}
                 </p>
@@ -88,12 +94,12 @@ export function PrintResume() {
         {/* Primary Experience: Parul University */}
         {parulExp && (
           <section className="mb-2 avoid-break flex-1">
-            <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-b border-slate-400 pb-0.5 mb-1.5 flex items-center justify-between">
+            <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-l-3 border-slate-900 pl-2 pb-0.5 mb-1.5 flex items-center justify-between">
               <span>Professional Experience — Current Primary Role</span>
               <span className="text-[9.5px] font-mono text-slate-600 font-normal">{parulExp.period}</span>
             </h2>
 
-            <div>
+            <div className="p-2 rounded-sm bg-slate-50 border border-slate-200">
               <div className="flex justify-between items-baseline">
                 <h3 className="text-[11px] font-black text-slate-950">
                   {parulExp.role}
@@ -112,48 +118,41 @@ export function PrintResume() {
                 ))}
               </ul>
 
-              <div className="pt-2 mt-1.5 text-[9.5px] font-mono text-slate-600">
-                <strong>Core Tech: </strong>{parulExp.technologies.join(' • ')}
+              <div className="pt-2 mt-1.5 text-[9.5px] font-mono text-slate-600 border-t border-slate-200">
+                <strong>Key Technologies: </strong>{parulExp.technologies.join(' • ')}
               </div>
             </div>
           </section>
         )}
 
-        {/* Page 1 Footer Note */}
+        {/* Page 1 Footer */}
         <div className="pt-2 mt-auto text-right text-[9px] font-mono text-slate-400 border-t border-slate-100">
           Tushar Sharma — Curriculum Vitae (Page 1 of 2)
         </div>
       </div>
 
       {/* ====================================================================
-          PAGE 2: Experience (Sofcon India), Case Studies & Credentials
+          PAGE 2: Sofcon India Experience, Key Projects & Credentials
           ==================================================================== */}
-      <div className="resume-page resume-page-2 flex flex-col justify-start pt-2">
-        {/* Header Mini Banner for Page 2 */}
-        <div className="flex justify-between items-center border-b border-slate-300 pb-1 mb-3">
-          <span className="text-[11px] font-black uppercase tracking-wider text-slate-950">
-            {PERSONAL_INFO.name} — Curriculum Vitae
-          </span>
-          <span className="text-[9.5px] font-mono text-slate-600">
-            {PERSONAL_INFO.email} • {PERSONAL_INFO.phone}
-          </span>
-        </div>
+      <div className="resume-page resume-page-2 flex flex-col justify-start">
+        {/* Consistent Executive Header (Page 2) */}
+        {renderHeader(2)}
 
         {/* Secondary Experience: Sofcon India */}
         {sofconExp && (
           <section className="mb-3.5 avoid-break">
-            <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-b border-slate-400 pb-0.5 mb-1.5 flex items-center justify-between">
-              <span>Career History — Center Head & MIS Operations</span>
+            <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-l-3 border-slate-900 pl-2 pb-0.5 mb-1.5 flex items-center justify-between">
+              <span>Career History — Center Head & Operations Governance</span>
               <span className="text-[9.5px] font-mono text-slate-600 font-normal">{sofconExp.period}</span>
             </h2>
 
-            <div>
+            <div className="p-2 rounded-sm bg-slate-50 border border-slate-200">
               <div className="flex justify-between items-baseline">
                 <h3 className="text-[11px] font-black text-slate-950">
                   {sofconExp.role}
                 </h3>
                 <span className="text-[10px] font-bold text-slate-700 font-mono">
-                  {sofconExp.company}
+                  {sofconExp.company} — India
                 </span>
               </div>
               <p className="text-[10px] italic text-slate-600 mt-0.5 mb-1.5">
@@ -166,46 +165,47 @@ export function PrintResume() {
                 ))}
               </ul>
 
-              <div className="pt-1.5 text-[9.5px] font-mono text-slate-600">
-                <strong>Core Tech: </strong>{sofconExp.technologies.join(' • ')}
+              <div className="pt-1.5 text-[9.5px] font-mono text-slate-600 border-t border-slate-200 mt-1.5">
+                <strong>Key Technologies: </strong>{sofconExp.technologies.join(' • ')}
               </div>
             </div>
           </section>
         )}
 
-        {/* Key Project Architectures & Platforms */}
+        {/* Key Project Architectures & Analytics Platforms */}
         <section className="mb-3.5 avoid-break">
-          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-b border-slate-400 pb-0.5 mb-1.5">
-            Key Project Architectures & Analytical Solutions
+          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-l-3 border-slate-900 pl-2 pb-0.5 mb-1.5">
+            Key Project Architectures & Analytics Platforms
           </h2>
           <div className="space-y-2 text-[10px]">
             {PROJECTS.map((proj) => (
-              <div key={proj.id} className="p-1.5 rounded-sm bg-slate-50 border border-slate-200">
+              <div key={proj.id} className="p-2 rounded-sm bg-slate-50 border border-slate-200">
                 <div className="flex justify-between items-baseline">
                   <span className="font-bold text-slate-950 text-[10.5px]">{proj.title}</span>
-                  <span className="text-[9px] font-mono font-bold text-slate-700 uppercase">
+                  <span className="text-[9px] font-mono font-bold text-slate-700 uppercase bg-slate-200 px-1.5 py-0.5 rounded-xs">
                     {proj.category}
                   </span>
                 </div>
                 <p className="text-slate-700 mt-0.5 leading-relaxed text-justify">
                   {proj.tagline} {proj.impact}
                 </p>
-                <div className="text-[9px] font-mono text-slate-600 mt-1">
-                  <strong>Impact: </strong>{proj.metrics.map((m) => `${m.label}: ${m.value}`).join(' | ')}
+                <div className="text-[9px] font-mono text-slate-600 mt-1 flex justify-between">
+                  <span><strong>Impact: </strong>{proj.metrics.map((m) => `${m.label}: ${m.value}`).join(' | ')}</span>
+                  <span><strong>Stack: </strong>{proj.technologies.slice(0, 3).join(', ')}</span>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Education & Verified Credentials */}
+        {/* Education & Verified Certifications */}
         <section className="mb-3 avoid-break">
-          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-b border-slate-400 pb-0.5 mb-1.5">
-            Education & Verified Certifications
+          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-950 border-l-3 border-slate-900 pl-2 pb-0.5 mb-1.5">
+            Education & Verified Industry Credentials
           </h2>
           <div className="grid grid-cols-2 gap-3 text-[10px]">
             {/* Education */}
-            <div className="p-1.5 rounded-sm bg-slate-50 border border-slate-200">
+            <div className="p-2 rounded-sm bg-slate-50 border border-slate-200">
               <h3 className="font-bold text-slate-950 uppercase tracking-wider text-[9.5px] mb-1">
                 Academic Degrees
               </h3>
@@ -219,7 +219,7 @@ export function PrintResume() {
             </div>
 
             {/* Certifications */}
-            <div className="p-1.5 rounded-sm bg-slate-50 border border-slate-200">
+            <div className="p-2 rounded-sm bg-slate-50 border border-slate-200">
               <h3 className="font-bold text-slate-950 uppercase tracking-wider text-[9.5px] mb-1">
                 Industry Certifications
               </h3>
@@ -242,7 +242,7 @@ export function PrintResume() {
           <strong>Key Strengths: </strong> Cross-Functional Leadership • Analytical Problem Solving • High-Volume Data Validation • Executive Reporting • Process Automation • Stakeholder Management
         </div>
 
-        {/* Page 2 Footer Note */}
+        {/* Page 2 Footer */}
         <div className="pt-2 mt-auto text-right text-[9px] font-mono text-slate-400 border-t border-slate-100">
           Tushar Sharma — Curriculum Vitae (Page 2 of 2)
         </div>

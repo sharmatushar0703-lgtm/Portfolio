@@ -148,14 +148,6 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
           >
             <div className="w-full aspect-square sm:aspect-[4/3] lg:aspect-square max-w-[560px] rounded-3xl relative border border-cyan-500/20 bg-slate-950/70 backdrop-blur-xl shadow-2xl shadow-cyan-500/10 overflow-hidden group">
               <Hero3DScene />
-
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 rounded-xl bg-slate-900/85 backdrop-blur-md border border-slate-800 text-[10px] sm:text-[11px] text-slate-400 flex items-center justify-between pointer-events-none">
-                <span className="flex items-center gap-1.5 font-mono text-cyan-400">
-                  <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
-                  3D Interactive Engine Active
-                </span>
-                <span className="font-mono">Drag to Rotate</span>
-              </div>
             </div>
           </motion.div>
         </div>

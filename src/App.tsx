@@ -20,13 +20,6 @@ export function App() {
         <PrintResume mode="print" />
       </div>
 
-      {/* Interactive Executive Resume Modal for On-Screen Review */}
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-        onPrint={() => window.print()}
-      />
-
       {/* Main 3D Interactive Web Application */}
       <div className="print:hidden min-h-screen bg-[#030712] text-slate-100 selection:bg-cyan-500 selection:text-black overflow-x-hidden">
         <Navbar onOpenResume={() => setIsResumeOpen(true)} />
@@ -40,6 +33,13 @@ export function App() {
         </main>
         <Footer />
       </div>
+
+      {/* Interactive Executive Resume Modal for On-Screen Review */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+        onPrint={() => window.print()}
+      />
     </>
   );
 }

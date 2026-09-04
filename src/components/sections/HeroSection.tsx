@@ -5,9 +5,17 @@ import { PERSONAL_INFO } from '@/data/portfolioData';
 import { Hero3DScene } from '@/components/canvas/Hero3DScene';
 import { Card3D } from '@/components/ui/Card3D';
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onOpenResume?: () => void;
+}
+
+export function HeroSection({ onOpenResume }: HeroSectionProps) {
   const handlePrint = () => {
-    window.print();
+    if (onOpenResume) {
+      onOpenResume();
+    } else {
+      window.print();
+    }
   };
 
   return (
@@ -96,11 +104,14 @@ export function HeroSection() {
 
               <button
                 onClick={handlePrint}
-                className="w-full sm:w-auto px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-slate-900/90 text-cyan-400 hover:text-white hover:bg-slate-800 border border-cyan-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
-                title="Print ATS-Optimized Professional Resume"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-slate-900/90 text-cyan-400 hover:text-white hover:bg-slate-800 border border-cyan-500/40 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-cyan-500/10 hover:scale-105 active:scale-95 group"
+                title="View & Print ATS-Optimized Professional Resume"
               >
-                <Printer className="h-4 w-4" />
-                <span>Print Resume</span>
+                <FileText className="h-4 w-4 text-cyan-400 group-hover:text-white transition-colors" />
+                <span>View & Print Resume</span>
+                <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                  ATS
+                </span>
               </button>
             </motion.div>
 

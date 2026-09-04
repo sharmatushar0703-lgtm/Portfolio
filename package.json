@@ -29,5 +29,9 @@
     "tailwindcss": "^4.1.0",
     "typescript": "~5.8.0",
     "vite": "^6.3.0"
+  },
+  "optionalDependencies": {
+    "@esbuild/darwin-arm64": "^0.28.2",
+    "@rollup/rollup-darwin-arm64": "^4.63.1"
   }
 }

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, FileText } from 'lucide-react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
 
-export function Navbar() {
+interface NavbarProps {
+  onOpenResume?: () => void;
+}
+
+export function Navbar({ onOpenResume }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
@@ -16,7 +20,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#030712]/80 backdrop-blur-2xl border-b border-slate-800/80 transition-all">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#030712]/80 backdrop-blur-2xl border-b border-slate-800/80 transition-all screen-only">
       <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 h-16 sm:h-18 flex items-center justify-between gap-4">
         {/* Brand */}
         <a href="#" className="flex items-center gap-3 group">
@@ -46,8 +50,20 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Action Button */}
-        <div className="flex items-center gap-3">
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* Executive Resume Modal Trigger */}
+          {onOpenResume && (
+            <button
+              onClick={onOpenResume}
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs font-bold bg-slate-900/90 text-cyan-400 hover:text-white hover:bg-slate-800 border border-cyan-500/30 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
+              title="View & Print Executive ATS Resume"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              <span>Resume</span>
+            </button>
+          )}
+
           <a
             href="#contact"
             className="hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black shadow-lg shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95"
@@ -58,7 +74,7 @@ export function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-300 hover:bg-slate-800 transition-colors"
+            className="lg:hidden p-2 rounded-xl text-slate-300 hover:bg-slate-800 transition-colors cursor-pointer"
             aria-label="Toggle Menu"
           >
             {mobileOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
@@ -88,7 +104,20 @@ export function Navbar() {
               ))}
             </div>
 
-            <div className="pt-2 border-t border-slate-800">
+            <div className="pt-2 border-t border-slate-800 space-y-2">
+              {onOpenResume && (
+                <button
+                  onClick={() => {
+                    setMobileOpen(false);
+                    onOpenResume();
+                  }}
+                  className="w-full py-2.5 text-center text-xs font-bold rounded-xl bg-slate-900 text-cyan-400 border border-cyan-500/30 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <FileText className="h-4 w-4" />
+                  <span>View & Print Resume</span>
+                </button>
+              )}
+
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}

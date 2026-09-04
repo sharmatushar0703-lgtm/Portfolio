@@ -97,16 +97,16 @@ export function ContactSection() {
         </motion.div>
 
         {/* 2-Column Balanced & Spacious Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           {/* Left Column: Direct Channels (5 cols) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-5 space-y-4"
+            className="lg:col-span-5 flex flex-col"
           >
-            <Card3D glowColor="rgba(56, 189, 248, 0.2)" className="p-7 sm:p-8 space-y-6">
+            <Card3D glowColor="rgba(56, 189, 248, 0.2)" className="h-full flex flex-col justify-between p-7 sm:p-9 space-y-6">
               <div>
                 <h3 className="text-xl font-bold text-white tracking-tight">
                   Reach Out Directly
@@ -212,11 +212,11 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-7 space-y-4"
+            className="lg:col-span-7 flex flex-col"
           >
-            <Card3D glowColor="rgba(16, 185, 129, 0.3)" className="p-7 sm:p-9 space-y-7">
-              {/* Header */}
-              <div className="flex items-start justify-between gap-4">
+            <Card3D glowColor="rgba(16, 185, 129, 0.28)" className="h-full flex flex-col justify-between p-7 sm:p-9 lg:p-10">
+              {/* 1. Header with Direct WhatsApp Line */}
+              <div className="flex items-start justify-between gap-4 pb-1">
                 <div className="flex items-center gap-4">
                   <div className="h-14 w-14 rounded-2xl bg-gradient-to-tr from-emerald-500 via-green-500 to-teal-500 text-slate-950 flex items-center justify-center shadow-xl shadow-emerald-500/25 shrink-0">
                     <WhatsAppIcon className="h-7 w-7 fill-slate-950" />
@@ -237,24 +237,29 @@ export function ContactSection() {
                 </span>
               </div>
 
-              {/* Big Primary WhatsApp Button */}
-              <button
-                type="button"
-                onClick={() => openWhatsApp(customMessage)}
-                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
-              >
-                <WhatsAppIcon className="h-5 w-5 fill-slate-950" />
-                <span>Open WhatsApp Chat (+91 88140 50806)</span>
-                <ArrowUpRight className="h-5 w-5 text-slate-950" />
-              </button>
+              {/* Space after direct whatsapp line, then Open Chat Option */}
+              <div className="pt-7 sm:pt-8">
+                <button
+                  type="button"
+                  onClick={() => openWhatsApp(customMessage)}
+                  className="w-full py-4 sm:py-4.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                >
+                  <WhatsAppIcon className="h-5 w-5 fill-slate-950" />
+                  <span>Open WhatsApp Chat (+91 88140 50806)</span>
+                  <ArrowUpRight className="h-5 w-5 text-slate-950" />
+                </button>
+              </div>
 
-              {/* 3 Quick Conversation Starters (Spacious Cards) */}
-              <div className="space-y-3">
-                <p className="text-xs font-bold text-slate-400 uppercase font-mono tracking-wider">
-                  Or select a conversation topic:
-                </p>
+              {/* Space after Open Chat option, then Select a Conversation Type */}
+              <div className="pt-8 sm:pt-10 space-y-4">
+                <div className="flex items-center gap-3">
+                  <p className="text-xs font-bold text-slate-400 uppercase font-mono tracking-wider">
+                    Select a conversation topic:
+                  </p>
+                  <div className="h-[1px] flex-1 bg-slate-800/80" />
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                   {directOptions.map((opt) => {
                     const IconComponent = opt.icon;
                     return (
@@ -262,7 +267,7 @@ export function ContactSection() {
                         key={opt.title}
                         type="button"
                         onClick={() => openWhatsApp(opt.message)}
-                        className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-850 transition-all text-left group flex flex-col justify-between space-y-2 cursor-pointer"
+                        className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-850/80 transition-all text-left group flex flex-col justify-between space-y-2.5 cursor-pointer"
                       >
                         <div className="flex items-center justify-between">
                           <div className={`p-2 rounded-xl bg-slate-800/80 border ${opt.color}`}>
@@ -284,13 +289,11 @@ export function ContactSection() {
                 </div>
               </div>
 
-              {/* Optional Custom Message Box */}
-              <div className="pt-2 space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <label className="text-xs font-semibold text-slate-300 font-mono">
-                    Want to add a custom note? (Optional)
-                  </label>
-                </div>
+              {/* Space before Custom Note */}
+              <div className="pt-8 sm:pt-9 border-t border-slate-800/80 space-y-3">
+                <label className="block text-xs font-semibold text-slate-300 font-mono">
+                  Want to add a custom note? (Optional)
+                </label>
 
                 <div className="relative">
                   <input

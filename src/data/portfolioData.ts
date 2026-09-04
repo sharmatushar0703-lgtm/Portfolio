@@ -45,6 +45,8 @@ export const PERSONAL_INFO = {
   subHeadline: 'Translating complex operational and admissions datasets into structured reporting logic, 3D analytical dashboards, and executive scorecards.',
   email: 'sharma.tushar0703@gmail.com',
   phone: '+91 88140 50806',
+  whatsapp: 'https://wa.me/918814050806',
+  whatsappFormatted: '+91 88140 50806',
   location: 'Vadodara, Gujarat, India',
   github: 'https://github.com/sharmatushar0703',
   linkedin: 'https://linkedin.com',

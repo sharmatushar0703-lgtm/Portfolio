@@ -26,7 +26,7 @@ interface ResumeModalProps {
 
 export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
   const [activePage, setActivePage] = useState<'all' | 1 | 2>('all');
-  const [zoom, setZoom] = useState<number>(85);
+  const [zoom, setZoom] = useState<number>(100);
   const [copied, setCopied] = useState(false);
 
   // Close on Escape key
@@ -144,31 +144,42 @@ export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
               {/* Zoom Controls */}
               <div className="hidden md:flex items-center gap-1 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700 text-xs text-slate-300">
                 <button
-                  onClick={() => setZoom((prev) => Math.max(60, prev - 10))}
+                  onClick={() => setZoom((prev) => Math.max(65, prev - 10))}
                   className="p-1 hover:text-white transition-colors cursor-pointer"
                   title="Zoom Out"
                 >
                   <ZoomOut className="w-3.5 h-3.5" />
                 </button>
-                <span className="font-mono text-[11px] w-9 text-center">{zoom}%</span>
+                <span className="font-mono text-[11px] w-10 text-center font-bold text-cyan-400">{zoom}%</span>
                 <button
-                  onClick={() => setZoom((prev) => Math.min(130, prev + 10))}
+                  onClick={() => setZoom((prev) => Math.min(140, prev + 10))}
                   className="p-1 hover:text-white transition-colors cursor-pointer"
                   title="Zoom In"
                 >
                   <ZoomIn className="w-3.5 h-3.5" />
                 </button>
                 <button
-                  onClick={() => setZoom(85)}
-                  className="p-1 hover:text-cyan-400 text-slate-400 transition-colors ml-0.5 cursor-pointer text-[10px] font-mono font-bold"
-                  title="Fit Page (85%)"
+                  onClick={() => setZoom(100)}
+                  className={`px-2 py-0.5 rounded font-mono font-bold text-[10px] transition-colors cursor-pointer ${
+                    zoom === 100 ? 'bg-cyan-500 text-black' : 'hover:bg-slate-700 text-slate-300'
+                  }`}
+                  title="100% Readable Size"
+                >
+                  100%
+                </button>
+                <button
+                  onClick={() => setZoom(80)}
+                  className={`px-2 py-0.5 rounded font-mono font-bold text-[10px] transition-colors cursor-pointer ${
+                    zoom === 80 ? 'bg-cyan-500 text-black' : 'hover:bg-slate-700 text-slate-300'
+                  }`}
+                  title="Fit Page to Screen"
                 >
                   Fit
                 </button>
                 <button
                   onClick={() => setZoom(100)}
                   className="p-1 hover:text-cyan-400 text-slate-400 transition-colors ml-0.5 cursor-pointer"
-                  title="Reset to 100%"
+                  title="Reset Zoom to 100%"
                 >
                   <RotateCcw className="w-3 h-3" />
                 </button>
@@ -223,7 +234,7 @@ export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
               {/* Render Page 1 */}
               {(activePage === 'all' || activePage === 1) && (
                 <div className="relative bg-white text-slate-900 rounded-sm shadow-2xl w-full max-w-[210mm] border border-slate-300 transition-shadow hover:shadow-cyan-500/10">
-                  <div className="p-4 sm:p-7">
+                  <div className="p-5 sm:p-8">
                     <PrintResume mode="preview" pageNumber={1} />
                   </div>
                 </div>
@@ -232,7 +243,7 @@ export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
               {/* Render Page 2 */}
               {(activePage === 'all' || activePage === 2) && (
                 <div className="relative bg-white text-slate-900 rounded-sm shadow-2xl w-full max-w-[210mm] border border-slate-300 transition-shadow hover:shadow-cyan-500/10">
-                  <div className="p-4 sm:p-7">
+                  <div className="p-5 sm:p-8">
                     <PrintResume mode="preview" pageNumber={2} />
                   </div>
                 </div>

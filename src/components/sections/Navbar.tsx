@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, FileText } from 'lucide-react';
+import { Menu, X, Sparkles, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
 
 interface NavbarProps {
@@ -57,9 +57,9 @@ export function Navbar({ onOpenResume }: NavbarProps) {
             <button
               onClick={onOpenResume}
               className="hidden sm:inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs font-bold bg-slate-900/90 text-cyan-400 hover:text-white hover:bg-slate-800 border border-cyan-500/30 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
-              title="View & Print Executive ATS Resume"
+              title="Download Executive ATS Resume"
             >
-              <FileText className="h-3.5 w-3.5" />
+              <Download className="h-3.5 w-3.5" />
               <span>Resume</span>
             </button>
           )}
@@ -113,8 +113,8 @@ export function Navbar({ onOpenResume }: NavbarProps) {
                   }}
                   className="w-full py-2.5 text-center text-xs font-bold rounded-xl bg-slate-900 text-cyan-400 border border-cyan-500/30 flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <FileText className="h-4 w-4" />
-                  <span>View & Print Resume</span>
+                  <Download className="h-4 w-4" />
+                  <span>Download Resume</span>
                 </button>
               )}
 

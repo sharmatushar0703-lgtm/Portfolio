@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X,
-  Printer,
   Download,
   Eye,
   FileCheck,
@@ -21,10 +20,11 @@ import { PERSONAL_INFO } from '@/data/portfolioData';
 interface ResumeModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onDownload?: () => void;
   onPrint?: () => void;
 }
 
-export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
+export function ResumeModal({ isOpen, onClose, onDownload, onPrint }: ResumeModalProps) {
   const [activePage, setActivePage] = useState<'all' | 1 | 2>('all');
   const [zoom, setZoom] = useState<number>(100);
   const [copied, setCopied] = useState(false);
@@ -46,12 +46,19 @@ export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
     };
   }, [isOpen, onClose]);
 
-  const handlePrint = () => {
-    if (onPrint) {
+  const handleDownload = () => {
+    const originalTitle = document.title;
+    document.title = `${PERSONAL_INFO.name.replace(/\s+/g, '_')}_Executive_Resume`;
+    if (onDownload) {
+      onDownload();
+    } else if (onPrint) {
       onPrint();
     } else {
       window.print();
     }
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 1500);
   };
 
   const handleCopyLink = () => {
@@ -100,7 +107,7 @@ export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
                   </span>
                 </div>
                 <p className="text-[10.5px] text-slate-400 font-mono hidden sm:block">
-                  Standard 2-Page Executive Curriculum Vitae • Ready for A4 Print & PDF Export
+                  Standard 2-Page Executive Curriculum Vitae • Ready for High-Resolution PDF Download
                 </p>
               </div>
             </div>
@@ -185,15 +192,14 @@ export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
                 </button>
               </div>
 
-              {/* Print / Download Button */}
+              {/* Download Button */}
               <button
-                onClick={handlePrint}
+                onClick={handleDownload}
                 className="px-3 sm:px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black shadow-lg shadow-cyan-500/20 flex items-center gap-1.5 sm:gap-2 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                title="Print or Save as PDF"
+                title="Download Executive Resume as PDF"
               >
-                <Printer className="w-4 h-4" />
-                <span className="hidden sm:inline">Print / Save PDF</span>
-                <span className="sm:hidden">Print</span>
+                <Download className="w-4 h-4" />
+                <span>Download Resume (PDF)</span>
               </button>
 
               {/* Close Button */}
@@ -213,7 +219,7 @@ export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
               <span>
-                💡 <strong>Tip for Best Output:</strong> In your print dialog, select <strong>"Save as PDF"</strong>, Paper: <strong>A4</strong>, and check <strong>"Background graphics"</strong>.
+                📥 Click <strong>"Download Resume (PDF)"</strong> to save your complete executive copy with full background styling.
               </span>
             </div>
             <button
@@ -258,7 +264,7 @@ export function ResumeModal({ isOpen, onClose, onPrint }: ResumeModalProps) {
             </span>
             <div className="flex items-center gap-2 shrink-0">
               <button
-                onClick={handlePrint}
+                onClick={handleDownload}
                 className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5" />

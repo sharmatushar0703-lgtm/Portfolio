@@ -38,7 +38,14 @@ export function App() {
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
-        onPrint={() => window.print()}
+        onDownload={() => {
+          const originalTitle = document.title;
+          document.title = 'Tushar_Sharma_Executive_Resume';
+          window.print();
+          setTimeout(() => {
+            document.title = originalTitle;
+          }, 1500);
+        }}
       />
     </>
   );

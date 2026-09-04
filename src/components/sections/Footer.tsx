@@ -13,7 +13,7 @@ export function Footer() {
         <div className="flex items-center gap-2">
           <span className="font-bold text-slate-300">{PERSONAL_INFO.name}</span>
           <span>•</span>
-          <span className="font-mono">3D Executive Portfolio</span>
+          <span className="font-mono">Executive Portfolio</span>
         </div>
 
         <button

@@ -32,7 +32,7 @@ export function Navbar({ onOpenResume }: NavbarProps) {
               {PERSONAL_INFO.name}
             </span>
             <span className="text-[9px] sm:text-[10px] text-cyan-400 font-mono uppercase tracking-widest block -mt-0.5">
-              3D Executive Analytics
+              Executive Analytics & Systems
             </span>
           </div>
         </a>

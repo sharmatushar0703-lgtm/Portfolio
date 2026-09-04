@@ -90,7 +90,7 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
                 href="#projects"
                 className="w-full sm:w-auto px-6 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95"
               >
-                <span>Explore 3D Case Studies</span>
+                <span>Explore Case Studies</span>
                 <ArrowRight className="h-4 w-4" />
               </a>
 

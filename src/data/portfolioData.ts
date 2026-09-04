@@ -42,7 +42,7 @@ export interface Certification {
 export const PERSONAL_INFO = {
   name: 'Tushar Sharma',
   headline: 'System Executive | CRM Operations | Data Analyst | MIS & Reporting',
-  subHeadline: 'Translating complex operational and admissions datasets into structured reporting logic, 3D analytical dashboards, and executive scorecards.',
+  subHeadline: 'Translating complex operational and admissions datasets into structured reporting logic, real-time analytical dashboards, and executive scorecards.',
   email: 'sharma.tushar0703@gmail.com',
   phone: '+91 88140 50806',
   whatsapp: 'https://wa.me/918814050806',
@@ -73,7 +73,7 @@ export const PROJECTS: Project[] = [
     id: 'admissions-analytics',
     title: 'University Admissions & Enrollment Intelligence Platform',
     category: 'Web Platform',
-    tagline: 'Interactive 3D web platform converting complex multi-channel admissions data into real-time executive dashboards.',
+    tagline: 'Centralized analytics web platform converting complex multi-channel admissions data into real-time executive dashboards.',
     description: 'Designed and engineered a centralized data visualization architecture that eliminates spreadsheet dependency across university leadership and department heads.',
     metrics: [
       { label: 'Report Turnaround', value: '85% Faster' },

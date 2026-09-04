@@ -23,13 +23,13 @@ export function ProjectsSection() {
         <div className="text-center max-w-4xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-wider font-mono">
             <Layers className="h-3.5 w-3.5" />
-            <span>3D Interactive Case Studies</span>
+            <span>Interactive Case Studies</span>
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
             Architected Solutions & Data Platforms
           </h2>
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
-            Hover over cards to experience real-time 3D parallax tilt and explore detailed architectural breakdowns.
+            Explore detailed system architectures, operational analytics pipelines, and key performance metrics.
           </p>
         </div>
 

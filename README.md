@@ -1,4 +1,4 @@
-# Tushar Sharma — 3D Executive Portfolio & Analytics Platform
+# Tushar Sharma — Executive Portfolio & Analytics Platform
 
 <div align="center">
 
@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <em>"Translating complex operational and admissions datasets into structured reporting logic, 3D analytical dashboards, and executive scorecards."</em>
+  <em>"Translating complex operational and admissions datasets into structured reporting logic, analytical dashboards, and executive scorecards."</em>
 </p>
 
 [Explore Projects](#-featured-case-studies) • [Executive Resume](#-dual-mode-executive-resume--ats-print) • [Tech Stack](#-tech-stack) • [Quick Start](#-quick-start) • [Contact](#-contact--connect)
@@ -25,7 +25,7 @@
 
 ## 📌 Executive Overview
 
-This repository houses the personal executive portfolio and 3D web platform of **Tushar Sharma**. Built with **React 19**, **Three.js / WebGL**, **Tailwind CSS v4**, and **TypeScript**, the platform showcases data intelligence architecture, CRM pipelines, high-volume data cleansing mechanisms, and executive MIS scorecards developed across 5+ years of professional operations (including 3+ years at **Parul University**).
+This repository houses the personal executive portfolio and web platform of **Tushar Sharma**. Built with **React 19**, **Three.js / WebGL**, **Tailwind CSS v4**, and **TypeScript**, the platform showcases data intelligence architecture, CRM pipelines, high-volume data cleansing mechanisms, and executive MIS scorecards developed across 5+ years of professional operations (including 3+ years at **Parul University**).
 
 ### 🏆 Key Career Highlights
 * **Tenure at Parul University:** 3+ Years as System Executive (Central Contact Center & Admissions).
@@ -38,7 +38,7 @@ This repository houses the personal executive portfolio and 3D web platform of *
 
 ## ✨ Core Features
 
-### 1. 🌌 Interactive 3D Holographic Data Core
+### 1. 🌌 Interactive Holographic Data Core
 * Real-time WebGL interactive canvas built with **Three.js**, `@react-three/fiber`, and `@react-three/drei`.
 * Features a dynamic floating distorted sphere, rotating wireframe matrix, orbiting tech nodes, star dust particle field, and smooth mouse-controlled orbit physics.
 
@@ -50,10 +50,10 @@ This repository houses the personal executive portfolio and 3D web platform of *
 * Dedicated print stylesheet (`custom.css`) engineered for automated Applicant Tracking Systems (ATS) and clean physical/PDF printing.
 * **Page 1:** Executive Profile, 4-Card Metrics Ribbon, Core Competencies Matrix (2x2 grid), and Parul University tenure with high-impact achievement bullets.
 * **Page 2:** Sofcon India operations governance, 4 key project architectures, verified academic degrees, and professional certifications.
-* **Print Features:** Clean A4 portrait pagination (`break-after: page`), suppression of screen navigation/3D canvas, and strict color-contrast rendering.
+* **Print Features:** Clean A4 portrait pagination (`break-after: page`), suppression of screen navigation/canvas, and strict color-contrast rendering.
 
 ### 4. 📊 Detailed Project Case Studies
-* Dynamic 3D tilt cards with modal drilldowns highlighting problem statements, engineering solutions, quantifiable metrics, and tech stacks.
+* Dynamic interactive cards with modal drilldowns highlighting problem statements, engineering solutions, quantifiable metrics, and tech stacks.
 
 ---
 
@@ -70,12 +70,12 @@ This repository houses the personal executive portfolio and 3D web platform of *
 
 ## 🛠️ Tech Stack
 
-### Core Frontend & 3D
+### Core Frontend & Visualizations
 * **Framework:** [React 19](https://react.dev)
 * **Language:** [TypeScript 5.8](https://www.typescriptlang.org)
 * **Build System:** [Vite 6](https://vitejs.dev)
 * **Styling:** [Tailwind CSS v4](https://tailwindcss.com)
-* **3D Visualizations:** [Three.js](https://threejs.org), [`@react-three/fiber`](https://github.com/pmndrs/react-three-fiber), [`@react-three/drei`](https://github.com/pmndrs/drei)
+* **Visualizations & WebGL:** [Three.js](https://threejs.org), [`@react-three/fiber`](https://github.com/pmndrs/react-three-fiber), [`@react-three/drei`](https://github.com/pmndrs/drei)
 * **Animations:** [Framer Motion](https://www.framer.com/motion)
 * **Icons:** [Lucide React](https://lucide.dev)
 
